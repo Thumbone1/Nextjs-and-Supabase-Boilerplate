@@ -11,6 +11,7 @@ export async function GET(request: Request) {
   const redirectTo = requestUrl.searchParams.get("redirect_to")?.toString();
 
   if (code) {
+    console.log("Exchanging code for session:", code);
     const supabase = await createClient();
     await supabase.auth.exchangeCodeForSession(code);
   }
