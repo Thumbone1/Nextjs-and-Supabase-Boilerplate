@@ -1,9 +1,9 @@
 import { SubmitButton } from '@/components/submit-button';
+import { signOutAction } from '@/actions/auth-actions';
 import { createClient } from '@/utils/supabase/server';
 import { InfoIcon } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { signOutAction } from '../actions';
 
 export default async function ProtectedPage() {
   const supabase = await createClient();
@@ -38,7 +38,9 @@ export default async function ProtectedPage() {
       </div>
       <div>
         <form>
-          <SubmitButton pendingText='Logging out...' formAction={signOutAction}>Log Out</SubmitButton>
+          <SubmitButton pendingText='Logging out...' formAction={signOutAction}>
+            Log Out
+          </SubmitButton>
         </form>
       </div>
     </div>
